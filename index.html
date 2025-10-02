@@ -370,8 +370,10 @@
                         <div id="enrol-agreeterms" class="fw eitemgroup mb-4">
                             <input type="checkbox" id="cb_agreeterms" name="entry.753252003" /><label class="optionallabel cblabel" for="cb_agreeterms">本人明白及同意<span id="enrol-termsbtn">收集及使用個人資料聲明、使用個人影像和影音聲明及參賽作品版權聲明</span>。</label>
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6LfhR9wrAAAAAAbzpJElujQSUcIn6DxPVKPUZ4AW"></div>
-                        <div class="fw"><input type="submit" id="EnrollmentSubmit" value="提交表格" disabled /></div>
+                        <div class="fw"><input type="submit" id="EnrollmentSubmit" value="提交表格" class="g-recaptcha"
+    data-sitekey="6LfhR9wrAAAAAAbzpJElujQSUcIn6DxPVKPUZ4AW"
+    data-callback="onReCaptchaSuccess"
+    data-size="invisible" disabled /></div>
 
                     <!--</div>--></form>
                     <!-- Hidden iframe for form submission target -->
