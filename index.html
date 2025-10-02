@@ -311,8 +311,9 @@
                         </ol>
                     </div>
                    <!-- <form id="EnrollForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf5qGRGDMuOh4eures2senOOucX0mb--DkZTBDPpR1fVAeJ-w/formResponse" method="post">-->
-                    <div id="EnrollmentForm" class="txtleft">
-                        <div class="eitemgroup full"><label for="generalemail">電郵</label><input type="text" class="form-control" name="entry.579754307" id="generalemail"  placeholder="（請盡量提供非學校內聯網電郵地址，以免通訊電郵遭拒收）" /></div>
+                    <form id="EnrollmentForm" method="GET" target="hidden_iframe">
+                    <!--<div id="EnrollmentForm" class="txtleft">-->
+                        <div class="eitemgroup full"><label for="generalemail">電郵</label><input type="text" class="form-control" name="emailAddress" id="generalemail"  placeholder="（請盡量提供非學校內聯網電郵地址，以免通訊電郵遭拒收）" /></div>
                         <div class="eitemgroup full"><label for="schoolname">學校名稱</label><input type="text" class="form-control" name="entry.579754307" id="schoolname" /></div>
                         <div class="eitemgroup"><label for="contactpname">聯絡人姓名</label><input type="text" class="form-control" name="entry.1753779986" id="contactpname" /></div>
                         <div class="eitemgroup"><label for="contactptel">聯絡人電話</label><input type="tel" class="form-control" name="entry.879343592" id="contactptel" /></div>
@@ -372,7 +373,10 @@
                         <div class="g-recaptcha" data-sitekey="6LfhR9wrAAAAAAbzpJElujQSUcIn6DxPVKPUZ4AW"></div>
                         <div class="fw"><input type="submit" id="EnrollmentSubmit" value="提交表格" disabled /></div>
 
-                    </div><!--</form>-->
+                    <!--</div>--></form>
+                    <!-- Hidden iframe for form submission target -->
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
                 </div></div>
 
         </div>
@@ -475,13 +479,34 @@
                     else{ $('html, body').stop().animate({ scrollTop: new_position.top -navH-topspace +100}, 500); }
                 }e.preventDefault();
             });
-            $('#cb_agreeterms').change(function() {
+            /*$('#cb_agreeterms').change(function() {
                 if(this.checked) {
                     $('#EnrollmentSubmit').removeAttr('disabled');
                 }else{
                     $('#EnrollmentSubmit').attr('disabled','disabled');
                 }
-            });
+            });*/
+            const $submitBtn = $('#EnrollmentSubmit');
+  const $termsCheckbox = $('#cb_agreeterms');
+
+  // Enable submit if terms checked AND reCAPTCHA completed
+  function updateSubmitButtonState() {
+    const recaptchaResponse = grecaptcha.getResponse();
+    if ($termsCheckbox.prop('checked') && recaptchaResponse.length > 0) {
+      $submitBtn.removeAttr('disabled');
+    } else {
+      $submitBtn.attr('disabled', 'disabled');
+    }
+  }
+
+  // Watch for terms checkbox changes
+  $termsCheckbox.change(updateSubmitButtonState);
+
+  // Watch for reCAPTCHA completion via callback
+  window.recaptchaCallback = function () {
+    updateSubmitButtonState();
+  };
+
             $('#group2').change(function() {
                 if(this.checked) {
                     $('#groupjoinothers').removeClass('hidden');
@@ -536,9 +561,9 @@
             $('input:radio[name=joingroup]').click(function(e){
                 $('#groupjoin').val($('input:radio[name=joingroup]:checked').val());
             });*/
-             $('#EnrollmentSubmit').click(function(e){
-            //$('#EnrollmentForm').on('submit', function(e) {
-  //e.preventDefault(); // prevent default form submission
+             //$('#EnrollmentSubmit').click(function(e){
+$('#EnrollmentForm').submit(function (e) {
+    e.preventDefault();
 
                 var status = true;
                 var recaptchaResponse = grecaptcha.getResponse();
@@ -711,7 +736,7 @@
                         'entry.1109089584': content,
                         'entry.753252003': cbagree,
                         'emailAddress':generalemail,
-                        'emailReceipt':true,
+                        //'emailReceipt':true,
                         'g-recaptcha-response': recaptchaResponse 
                     }
                      var query = {
