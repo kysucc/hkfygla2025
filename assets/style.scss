@@ -140,6 +140,7 @@ label{font-weight: 500;}
 	&-2{margin-top:2em;}
 }
 .mb{
+	&-0{margin-bottom: 0 !important;}
 	&-2{margin-bottom:2em;}
 	&-4{margin-bottom:4em;}
 	&-8{margin-bottom:8em;}
@@ -215,12 +216,15 @@ section{
 		color:$color-lightest;
 		@extend %texturebg-T;
 
-		span.moreinfo{
+		span.moreinfo,span.moreinfo2{
 			font-weight: 400;
 		    font-size: 0.8em;
 		    margin-bottom: 0.8em;
 		    display: inline-block;
 		    color: $color-theme-lightgreen;
+		}
+		span.moreinfo2{
+			color:#9ccfe8;
 		}
 		table{
 			border:0;
@@ -253,7 +257,7 @@ section{
 	&#prevbooks{font-size: 0.9em;background:$color-theme-pale;
 		h2{color:$color-theme-darkbrown;}
 	}
-	&#enrol{
+	&#enrol{padding-top:2em;
 		background:$color-theme-green;
 		color:$color-lightest;
 		@extend %texturebg-T;
@@ -417,7 +421,7 @@ td{width:50%;}
 	background-repeat:no-repeat;
 	background-position:center top;
 	width:100%; height:auto;
-	min-height:calc(100vh - 3.5em);
+	min-height:calc(45vh - 3.5em);
 	position: relative;
 	&H{
 		.bannerimg{padding-top:50%;background-image: url(banner.jpg);margin: 0 0 0 0;}
@@ -473,6 +477,8 @@ td{width:50%;}
 		&6{background-image: url(book6.jpg);}
 		&7{background-image: url(book7.jpg);}
 		&8{background-image: url(book8.jpg);}
+		&9{background-image: url(book9.jpg);}
+		&10{background-image: url(book10.jpg);padding-top: 142%;}
 	}
 	&category{
 		padding:0.1em 1em 0.2em 1em;
@@ -810,4 +816,15 @@ body.popterms{
 	    font-weight: 500;
 	}
     #EnrollmentForm{opacity: 0.3;}
+}
+#enrollFormWrap{
+	width: 100%;
+    max-width: 740px;
+    margin:0 auto;
+    overflow: hidden;
+}
+#enrollForm{
+	width: calc(100% + 15px);
+    height: 75vh;
+    position: relative;
 }
