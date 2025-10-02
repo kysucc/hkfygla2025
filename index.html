@@ -12,7 +12,8 @@
 
   	<title>校園作家大招募計劃 2025-2026</title>
   	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>    
+  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
 <body class="preload">
@@ -311,7 +312,7 @@
                     </div>
                    <!-- <form id="EnrollForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf5qGRGDMuOh4eures2senOOucX0mb--DkZTBDPpR1fVAeJ-w/formResponse" method="post">-->
                     <div id="EnrollmentForm" class="txtleft">
-                        <div class="eitemgroup full"><label for="generalemail">電郵</label><input type="text" class="form-control" name="entry.579754307" id="generalemail" /></div>
+                        <div class="eitemgroup full"><label for="generalemail">電郵</label><input type="text" class="form-control" name="entry.579754307" id="generalemail"  placeholder="（請盡量提供非學校內聯網電郵地址，以免通訊電郵遭拒收）" /></div>
                         <div class="eitemgroup full"><label for="schoolname">學校名稱</label><input type="text" class="form-control" name="entry.579754307" id="schoolname" /></div>
                         <div class="eitemgroup"><label for="contactpname">聯絡人姓名</label><input type="text" class="form-control" name="entry.1753779986" id="contactpname" /></div>
                         <div class="eitemgroup"><label for="contactptel">聯絡人電話</label><input type="tel" class="form-control" name="entry.879343592" id="contactptel" /></div>
@@ -368,6 +369,7 @@
                         <div id="enrol-agreeterms" class="fw eitemgroup mb-4">
                             <input type="checkbox" id="cb_agreeterms" name="entry.753252003" /><label class="optionallabel cblabel" for="cb_agreeterms">本人明白及同意<span id="enrol-termsbtn">收集及使用個人資料聲明、使用個人影像和影音聲明及參賽作品版權聲明</span>。</label>
                         </div>
+                        <div class="g-recaptcha" data-sitekey="6LfhR9wrAAAAAAbzpJElujQSUcIn6DxPVKPUZ4AW"></div>
                         <div class="fw"><input type="submit" id="EnrollmentSubmit" value="提交表格" disabled /></div>
 
                     </div><!--</form>-->
@@ -537,7 +539,13 @@
              $('#EnrollmentSubmit').click(function(e){
 
                 var status = true;
+                var recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    alert('Please verify that you are not a robot.');
+                    return; // stop submission if no token
+                  }
 
+                var generalemail = $('#generalemail').val();
                 var schoolname = $('#schoolname').val(); 
                 var contactpname = $('#contactpname').val();
                 var contactptel = $('#contactptel').val();
@@ -565,6 +573,15 @@
                 //submitiondatetime set below
             
                 // reject if blank
+               if(generalemail == ''){        
+                    $('#generalemail').closest('.eitemgroup').addClass('warn empty');           status = false;     
+                } else { 
+                    if(validateEmail(generalemail)==false){
+                        $('#generalemail').closest('.eitemgroup').addClass('warn format'); status = false; 
+                    } else { 
+                        $('#generalemail').closest('.eitemgroup').removeClass('warn empty'); 
+                    } 
+                }
 
                 if(schoolname == ''){   
                     $('#schoolname').closest('.eitemgroup').addClass('warn empty');      
@@ -691,11 +708,14 @@
                         'entry.1286140143.other_option_response': groupjoinothers,
                         'entry.1109089584': content,
                         'entry.753252003': cbagree,
+                        'emailAddress':generalemail,
+                        'emailReceipt':true,
+                        'g-recaptcha-response': recaptchaResponse 
                     }
                      var query = {
                         "entry.1286140143": groupjoin
                       };
-                      var urladdress = 'https://docs.google.com/forms/d/e/1FAIpQLSf5qGRGDMuOh4eures2senOOucX0mb--DkZTBDPpR1fVAeJ-w/formResponse';
+                      var urladdress = 'https://docs.google.com/forms/d/e/1FAIpQLSe9VxsGgGW7HqUTFoXvgA3T5G8yNAXzw-Pgo3eHnfgYuk7oHw/formResponse';
 
                       //console.log(schoolname,contactpname,contactptel,contactptelwhatsapp,contactpemail,name,form,gender,tel,email,groupjoinothers,content,cbagree);
                     // send
@@ -729,7 +749,7 @@
             });
             // .valueOf() gives time in milliseconds 
             var currentTime = new Date($.now());
-            var targetTime = new Date("November 16, 2024");
+            var targetTime = new Date("November 16, 2025");
             console.log(currentTime,targetTime);
             if (targetTime <= currentTime) {
                $('#checktimesup').addClass('timesup');

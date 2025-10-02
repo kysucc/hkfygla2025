@@ -587,13 +587,13 @@ td {
     #EnrollmentForm .eitemgroup input, #EnrollmentForm .eitemgroup textarea {
       border: 1px solid #f5e8c6; }
       #EnrollmentForm .eitemgroup input::placeholder, #EnrollmentForm .eitemgroup textarea::placeholder {
-        color: #a8d8eb;
+        color: #555;
         opacity: 0.6; }
     #EnrollmentForm .eitemgroup label, #EnrollmentForm .eitemgroup input, #EnrollmentForm .eitemgroup textarea, #EnrollmentForm .eitemgroup select {
       display: table-cell;
       letter-spacing: 0.1em;
       opacity: 1;
-      border-radius: 1em; }
+      border-radius: 0.5em; }
     #EnrollmentForm .eitemgroup textarea.form-control {
       resize: none;
       border-radius: 1em;

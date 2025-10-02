@@ -556,13 +556,13 @@ td{width:50%;}
 		.form-control{padding-left:1.5em; padding-right: 1.5em;}
 		input,textarea{
 			border:1px solid #f5e8c6;
-			&::placeholder{color:$color-theme-brown;opacity: 0.6;}
+			&::placeholder{color:#555;opacity: 0.6;}
 		}
 		label,input,textarea,select{
 			display: table-cell; 
 			letter-spacing: 0.1em;
 			opacity: 1;
-			border-radius: 1em;
+			border-radius: 0.5em;
 		}
 		textarea.form-control{resize: none;border-radius: 1em;padding:1em 1.5em;}
 		label[for=email]{padding-right: calc(2.2em + 1em);}
