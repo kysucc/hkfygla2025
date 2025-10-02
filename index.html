@@ -10,7 +10,7 @@
   	<meta property="og:url" content="">
   	<meta property="og:description" content="香港青年協會一向致力推廣青年閱讀及創作，多年來出版多元系列的專業叢書。為了鼓勵青年發揮寫作才能，透過文字表達自己，本會自2016年開始推出廣受歡迎的「青年作家大招募計劃」，為青年帶來出版平台，實現出書夢。">
 
-  	<title>校園作家大招募計劃 2025-2026 0335</title>
+  	<title>校園作家大招募計劃 2025-2026 0430</title>
   	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>   
@@ -370,10 +370,18 @@
                         <div id="enrol-agreeterms" class="fw eitemgroup mb-4">
                             <input type="checkbox" id="cb_agreeterms" name="entry.753252003" /><label class="optionallabel cblabel" for="cb_agreeterms">本人明白及同意<span id="enrol-termsbtn">收集及使用個人資料聲明、使用個人影像和影音聲明及參賽作品版權聲明</span>。</label>
                         </div>
-                        <div class="fw"><input type="submit" id="EnrollmentSubmit" value="提交表格" class="g-recaptcha"
+                        <div class="fw"><!--<input type="submit" id="EnrollmentSubmit" value="提交表格" class="g-recaptcha"
     data-sitekey="6LfhR9wrAAAAAAbzpJElujQSUcIn6DxPVKPUZ4AW"
     data-callback="onReCaptchaSuccess"
-    data-size="invisible" disabled /></div>
+    data-size="invisible" disabled />--><button
+    class="g-recaptcha"
+    data-sitekey="6LfhR9wrAAAAAAbzpJElujQSUcIn6DxPVKPUZ4AW"
+    data-callback="onReCaptchaSuccess"
+    data-size="invisible"
+    id="EnrollmentSubmit"
+    disabled="disabled"
+  >提交表格
+  </button></div>
 
                     <!--</div>--></form>
                     <!-- Hidden iframe for form submission target -->
@@ -488,25 +496,21 @@
                     $('#EnrollmentSubmit').attr('disabled','disabled');
                 }
             });*/
-            const $submitBtn = $('#EnrollmentSubmit');
+const $submitBtn = $('#EnrollmentSubmit');
   const $termsCheckbox = $('#cb_agreeterms');
 
-  // Enable submit if terms checked AND reCAPTCHA completed
-  function updateSubmitButtonState() {
-    const recaptchaResponse = grecaptcha.getResponse();
-    if ($termsCheckbox.prop('checked') && recaptchaResponse.length > 0) {
+  // Enable submit button only if terms checkbox checked
+  $termsCheckbox.change(function () {
+    if ($(this).prop('checked')) {
       $submitBtn.removeAttr('disabled');
     } else {
       $submitBtn.attr('disabled', 'disabled');
     }
-  }
+  });
 
-  // Watch for terms checkbox changes
-  $termsCheckbox.change(updateSubmitButtonState);
-
-  // Watch for reCAPTCHA completion via callback
-  window.recaptchaCallback = function () {
-    updateSubmitButtonState();
+  // The actual form submission triggered after reCAPTCHA success
+  window.onReCaptchaSuccess = function (token) {
+    submitFormWithToken(token);
   };
 
             $('#group2').change(function() {
