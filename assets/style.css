@@ -1,0 +1,872 @@
+@charset "UTF-8";
+/*#deefe5*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;900&display=swap");
+section#schedule:before, section#enrol:before {
+  content: '';
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background: url(noisepattern.png);
+  /*background-blend-mode: multiply;*/
+  opacity: 0.44;
+  z-index: 1;
+  pointer-events: none; }
+
+section#schedule, section#enrol {
+  position: relative; }
+  section#schedule .container, section#enrol .container {
+    z-index: 10;
+    position: relative; }
+
+/*
+*{transition: all 0.3s;}
+.preload * {
+ -webkit-transition: none !important;
+ -moz-transition: none !important;
+ -ms-transition: none !important;
+ -o-transition: none !important;
+}*/
+body {
+  font-family: 'Noto Sans TC','Microsoft JhengHei', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: #111111;
+  background: #a8d8eb;
+  font-weight: 400; }
+
+h1 {
+  font-size: 1.1em;
+  margin: 0;
+  margin-top: -0.6em;
+  letter-spacing: 0.2em;
+  padding: 0 2em 0 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  color: #111111; }
+  h1 span#title-year {
+    display: flex;
+    margin-top: 0.2em;
+    text-align: left;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    opacity: 0.7; }
+  h1 span.title-year {
+    display: inline-block;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+    color: #111111;
+    font-weight: 600; }
+  h1 span.title-line {
+    display: inline-block;
+    width: 45%;
+    height: 1px;
+    background: #111111; }
+
+h2 {
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 0.2em;
+  margin: 0.5em 0 1.5em 0; }
+  h2 span {
+    display: block;
+    font-size: 0.4em;
+    letter-spacing: 0.5em;
+    font-weight: normal;
+    margin-top: 0.8em; }
+
+h3 {
+  margin: 0 0 1em 0;
+  font-size: 1em; }
+
+h4 {
+  margin-bottom: 1.5em;
+  font-weight: 600; }
+
+span {
+  font-weight: bold; }
+
+p {
+  margin-bottom: 2em;
+  line-height: 1.6em;
+  /*letter-spacing: 0.05em;*/ }
+
+label {
+  font-weight: 500; }
+
+.mt-1 {
+  margin-top: 1em; }
+.mt-2 {
+  margin-top: 2em; }
+
+.mb-2 {
+  margin-bottom: 2em; }
+.mb-4 {
+  margin-bottom: 4em; }
+.mb-8 {
+  margin-bottom: 8em; }
+
+.pt-02 {
+  padding-top: 0.2em; }
+
+.fs-80 {
+  font-size: 0.8em; }
+
+section {
+  padding: 4em 0; }
+  section:first-of-type {
+    margin-top: 3.5em; }
+  section:last-of-type {
+    padding-bottom: 4em; }
+  section#top {
+    padding: 0;
+    background: #5673a7; }
+  section#intro {
+    background: url(banner2.jpg) no-repeat top center/cover;
+    color: #111111;
+    padding-top: 7em; }
+    section#intro .intro-img {
+      width: 80%;
+      margin-top: -2em;
+      max-width: 30em; }
+  section#information {
+    background: #ffecbd;
+    color: #111111;
+    /*@extend %texturebg-TB;*/ }
+    section#information h2 {
+      color: #111111; }
+    section#information h3 {
+      display: inline-block;
+      color: #116d9c;
+      border: 1px solid #116d9c;
+      border-radius: 50em;
+      text-align: center;
+      padding: 0.5em 0.6em;
+      width: 100%; }
+    section#information .new {
+      display: inline-block;
+      background: #8a6437;
+      color: #fff;
+      padding: 0.2em 0.5em;
+      border-radius: 3px;
+      transform: rotate(0deg) scale(0.7) translate(0em, -0.3em); }
+  section#highlights {
+    background: #f0efef; }
+    section#highlights h2 {
+      color: #D14817;
+      margin-bottom: 1em; }
+    section#highlights .video {
+      width: 100%;
+      padding-top: 56%;
+      margin-bottom: 1em;
+      position: relative; }
+      section#highlights .video iframe {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%; }
+    section#highlights .winnertxt, section#highlights .winnerschool, section#highlights .winnername {
+      font-weight: normal;
+      font-size: 0.85em;
+      display: block; }
+    section#highlights .winnertxt {
+      margin-bottom: 1em; }
+    section#highlights .wintitle {
+      font-weight: normal;
+      margin: 0.5em 0;
+      display: inline-block; }
+  section#awards h2 {
+    color: #9A9134; }
+  section#schedule {
+    background: #5673a7;
+    color: #fff; }
+    section#schedule span.moreinfo {
+      font-weight: 400;
+      font-size: 0.8em;
+      margin-bottom: 0.8em;
+      display: inline-block;
+      color: #d4ec93; }
+    section#schedule table {
+      border: 0; }
+      section#schedule table tr:nth-of-type(odd) {
+        background: rgba(0, 0, 0, 0.2); }
+      section#schedule table tr:nth-of-type(even) {
+        background: rgba(0, 0, 0, 0.1); }
+      section#schedule table tr:first-of-type {
+        /*border-radius:2em 2em 0 0;*/ }
+        section#schedule table tr:first-of-type td:first-of-type {
+          border-radius: 2em 0 0 0; }
+        section#schedule table tr:first-of-type td:last-of-type {
+          border-radius: 0 2em 0 0; }
+      section#schedule table tr:last-of-type {
+        /*border-radius:0 0 2em 2em;*/ }
+        section#schedule table tr:last-of-type td:first-of-type {
+          border-radius: 0 0 0 2em; }
+        section#schedule table tr:last-of-type td:last-of-type {
+          border-radius: 0 0 2em 0; }
+      section#schedule table tr td {
+        border: 0;
+        padding-left: 2em;
+        padding-right: 2em; }
+        section#schedule table tr td:first-of-type {
+          font-size: 1.1em;
+          text-align: right;
+          font-weight: 500; }
+        section#schedule table tr td:last-of-type {
+          vertical-align: middle;
+          text-align: left;
+          font-weight: 300; }
+  section#prevbooks {
+    font-size: 0.9em;
+    background: #f0efef; }
+    section#prevbooks h2 {
+      color: #8a6437; }
+  section#enrol {
+    background: #5673a7;
+    color: #fff; }
+    section#enrol h2 {
+      margin-bottom: 1em; }
+  section#enquiry {
+    background: #ffecbd;
+    padding-bottom: 5em; }
+    section#enquiry h2 {
+      color: #116d9c; }
+  section#sponsor {
+    background: #f0efef; }
+    section#sponsor .subtitle {
+      font-size: 0.8em;
+      margin-bottom: 2em; }
+    section#sponsor .sponsorlogo {
+      display: inline-block;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: relative;
+      width: 25%;
+      padding-top: 20%; }
+      section#sponsor .sponsorlogo.slogo1 {
+        background-image: url(ele_hkfyglogo.png);
+        width: 100%;
+        padding-top: 32%; }
+      section#sponsor .sponsorlogo.slogo2 {
+        background-image: url(ele_scolarlogo.png); }
+      section#sponsor .sponsorlogo.slogo3 {
+        background-image: url(ele_langfundlogo.png); }
+      section#sponsor .sponsorlogo.slogo4 {
+        background-image: url(ele_govfplogo.png);
+        width: 40%;
+        float: right; }
+
+div.photo {
+  background-color: #f4aa85;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding-top: 66%; }
+  div.photo.bookcover {
+    background-image: url("bookcover.jpg"); }
+  div.photo.p3800 {
+    background-image: url("p3800.jpg"); }
+  div.photo.p3806 {
+    background-image: url("p3806.jpg"); }
+  div.photo.p3812 {
+    background-image: url("p3812.jpg"); }
+  div.photo.p3818 {
+    background-image: url("p3818.jpg"); }
+  div.photo.p3926 {
+    background-image: url("p3926.jpg"); }
+  div.photo.p3929 {
+    background-image: url("p3929.jpg"); }
+  div.photo.p3933 {
+    background-image: url("p3933.jpg"); }
+  div.photo.p0000 {
+    background-image: url("p0000.jpg"); }
+
+.fwrap {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between; }
+
+.fbox {
+  width: calc(20% - 25px); }
+
+.container-fluid {
+  padding-left: 2em;
+  padding-right: 2em; }
+
+.enrollbtnfloat, .enrollbtnfloat:hover, .enrollbtnfloat:visited {
+  border: none;
+  color: #fff;
+  letter-spacing: 0.3em;
+  background: #D14817;
+  padding: 0.5em 1.6em;
+  position: fixed;
+  right: -3.2em;
+  bottom: -500%;
+  z-index: 999;
+  transform: rotate(-90deg);
+  font-size: 0.8em;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  border-radius: 2em 2em 0 0; }
+  .enrollbtnfloat:focus, .enrollbtnfloat:hover:focus, .enrollbtnfloat:visited:focus {
+    outline: none;
+    text-decoration: none; }
+  .enrollbtnfloat:hover, .enrollbtnfloat:hover:hover, .enrollbtnfloat:visited:hover {
+    background: #E67F63; }
+
+#TopNav {
+  background: #fff;
+  border: none;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3); }
+  #TopNav .caret {
+    margin-left: 0.5em; }
+  #TopNav .nav > li > a, #TopNav .navbar-brand {
+    padding: 1.5em 1.3em;
+    color: #111111;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+    cursor: pointer; }
+    #TopNav .nav > li > a.dropdown-toggle, #TopNav .navbar-brand.dropdown-toggle {
+      color: #fff; }
+  #TopNav .nav > li > a {
+    border-right: 0; }
+  #TopNav .nav > li:last-of-type > a {
+    border-right: 0; }
+  #TopNav .nav > li:hover > a {
+    background: #116d9c;
+    color: #fff; }
+  #TopNav li.active a {
+    background: #1b4236;
+    color: #fff; }
+  #TopNav #enrol-btn a {
+    transition: all 0.3s;
+    color: #fff;
+    background: #D14817;
+    border-radius: 0 0 1em 1em;
+    padding-bottom: 2em;
+    margin-bottom: -2em;
+    border-right: 0; }
+    #TopNav #enrol-btn a:hover {
+      background: #E67F63;
+      padding-top: 2em; }
+  #TopNav .navbar-nav > li > .dropdown-menu {
+    padding: 0;
+    font-size: inherit;
+    border: none;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 3x 5px 0px rgba(0, 0, 0, 0.3); }
+  #TopNav .dropdown {
+    cursor: pointer; }
+    #TopNav .dropdown-toggle {
+      z-index: 100;
+      background: #116d9c;
+      color: #fff; }
+    #TopNav .dropdown-menu {
+      width: 100%;
+      display: block;
+      opacity: 0;
+      z-index: 99; }
+      #TopNav .dropdown-menu li {
+        height: 0; }
+      #TopNav .dropdown-menu a {
+        padding-top: 0;
+        padding-bottom: 0; }
+    #TopNav .dropdown:hover .dropdown-menu {
+      opacity: 1; }
+      #TopNav .dropdown:hover .dropdown-menu li {
+        height: auto; }
+      #TopNav .dropdown:hover .dropdown-menu a {
+        padding-top: 1em;
+        padding-bottom: 1em; }
+
+td {
+  width: 50%; }
+
+.txtcenter {
+  text-align: center; }
+
+.txtleft {
+  text-align: left; }
+
+.txtright {
+  text-align: right; }
+
+.inlineblock {
+  display: inline-block; }
+
+.txtn {
+  font-weight: normal; }
+
+.contacts_rowwrap {
+  display: inline-block;
+  margin: 0 auto; }
+.contacts_row {
+  display: flex; }
+.contacts_title {
+  font-weight: bold;
+  min-width: 4em; }
+
+.banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  width: 100%;
+  height: auto;
+  min-height: calc(100vh - 3.5em);
+  position: relative; }
+  .bannerH .bannerimg {
+    padding-top: 50%;
+    background-image: url(banner.jpg);
+    margin: 0 0 0 0; }
+  .bannerH .bannerbg:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url(noisepattern.png) repeat;
+    opacity: 0.44; }
+  .bannerTitle {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position-x: 46%; }
+    .bannerTitle1 {
+      background-image: url(title1.png);
+      background-position-y: 28%;
+      background-size: 38%; }
+    .bannerTitle2 {
+      background-image: url(title2.png);
+      background-position-y: 37%;
+      background-size: 33%; }
+
+.plane {
+  content: '';
+  display: inline-block;
+  width: 80%;
+  padding-top: 18%;
+  background: url(img2.png) no-repeat center center/contain;
+  position: absolute;
+  top: 0em;
+  left: 10%;
+  z-index: 1;
+  transform: rotate(-4deg); }
+
+.bookimg {
+  display: inline-block;
+  width: 100%;
+  padding-top: 150%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-top: -2em; }
+  .bookimg1 {
+    background-image: url(book1.jpg); }
+  .bookimg2 {
+    background-image: url(book2.jpg);
+    padding-top: 142%; }
+  .bookimg3 {
+    background-image: url(book3.jpg); }
+  .bookimg4 {
+    background-image: url(book4.jpg); }
+  .bookimg5 {
+    background-image: url(book5.jpg); }
+  .bookimg6 {
+    background-image: url(book6.jpg); }
+  .bookimg7 {
+    background-image: url(book7.jpg); }
+  .bookimg8 {
+    background-image: url(book8.jpg); }
+.bookcategory {
+  padding: 0.1em 1em 0.2em 1em;
+  border: 1px solid #9A9134;
+  font-weight: 400;
+  color: #9A9134;
+  margin-right: 0.8em;
+  border-radius: 50em;
+  font-size: 0.8em;
+  margin-bottom: 0.8em;
+  display: inline-block; }
+.booklink, .booklink:hover, .booklink:focus, .booklink:visited {
+  padding: 0.5em 1.5em;
+  color: #fff;
+  background: #D14817;
+  border-radius: 50em;
+  text-decoration: none; }
+.booklink:hover {
+  background: #E67F63; }
+
+.line {
+  width: 8%;
+  height: 1px;
+  background: #a8d8eb;
+  margin: 0 auto;
+  position: relative;
+  top: -4em; }
+  .lineL {
+    transform: rotate(-30deg); }
+  .lineR {
+    transform: rotate(30deg); }
+
+#EnrollNotes {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #111111;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2em;
+  padding: 1rem 3rem;
+  margin-bottom: 3rem; }
+  #EnrollNotes .h4 {
+    color: #116d9c; }
+
+#EnrollmentForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  opacity: 1;
+  transition: opacity 0.5s; }
+  #EnrollmentForm .break {
+    flex-basis: 100%;
+    height: 0; }
+  #EnrollmentForm .eitemgroup {
+    width: 46%;
+    display: table;
+    margin-bottom: 0.7em;
+    position: relative;
+    /*#groupjoinothers{opacity: 0;}*/ }
+    #EnrollmentForm .eitemgroup.full {
+      width: 100%; }
+    #EnrollmentForm .eitemgroup.fw {
+      width: 100%;
+      display: block; }
+      #EnrollmentForm .eitemgroup.fw label:not(.cblabel) {
+        display: block; }
+      #EnrollmentForm .eitemgroup.fw label:not(.cblabel) {
+        width: 100%;
+        font-weight: 400;
+        color: #ffecbd; }
+      #EnrollmentForm .eitemgroup.fw .cblabel {
+        display: inline-block; }
+    #EnrollmentForm .eitemgroup label:not(.cblabel):not(.optionallabel) {
+      padding-right: 1em;
+      text-align: left;
+      width: 10em;
+      font-weight: 400;
+      color: #ffecbd; }
+      #EnrollmentForm .eitemgroup label:not(.cblabel):not(.optionallabel):after {
+        content: '*';
+        display: inline;
+        color: #D14817; }
+    #EnrollmentForm .eitemgroup .cblabel {
+      padding-left: 2em;
+      padding-right: 1em; }
+    #EnrollmentForm .eitemgroup .form-control {
+      padding-left: 1.5em;
+      padding-right: 1.5em; }
+    #EnrollmentForm .eitemgroup input, #EnrollmentForm .eitemgroup textarea {
+      border: 1px solid #f5e8c6; }
+      #EnrollmentForm .eitemgroup input::placeholder, #EnrollmentForm .eitemgroup textarea::placeholder {
+        color: #a8d8eb;
+        opacity: 0.6; }
+    #EnrollmentForm .eitemgroup label, #EnrollmentForm .eitemgroup input, #EnrollmentForm .eitemgroup textarea, #EnrollmentForm .eitemgroup select {
+      display: table-cell;
+      letter-spacing: 0.1em;
+      opacity: 1;
+      border-radius: 1em; }
+    #EnrollmentForm .eitemgroup textarea.form-control {
+      resize: none;
+      border-radius: 1em;
+      padding: 1em 1.5em; }
+    #EnrollmentForm .eitemgroup label[for=email] {
+      padding-right: calc(2.2em + 1em); }
+    #EnrollmentForm .eitemgroup.warn input, #EnrollmentForm .eitemgroup.warn textarea {
+      border-color: #D14817; }
+    #EnrollmentForm .eitemgroup.warn:before {
+      display: inline-block;
+      font-size: 0.6em;
+      color: #fff;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 0.3em 0.5em;
+      border-top-right-radius: 4px;
+      background: #D14817;
+      z-index: 888; }
+    #EnrollmentForm .eitemgroup.warn.format:before {
+      content: '格式錯誤'; }
+    #EnrollmentForm .eitemgroup.warn.empty:before {
+      content: '請輸入'; }
+    #EnrollmentForm .eitemgroup.fw.warn:before {
+      top: 2.8em; }
+    #EnrollmentForm .eitemgroup .wordnum {
+      font-size: 0.8em;
+      float: right;
+      opacity: 1;
+      font-weight: normal;
+      /*&:after{content:'字';display: inline;}*/ }
+    #EnrollmentForm .eitemgroup#enrol-des {
+      margin-top: 1em; }
+    #EnrollmentForm .eitemgroup .cblabel, #EnrollmentForm .eitemgroup .rlabel {
+      position: relative;
+      display: inline-block;
+      cursor: pointer; }
+      #EnrollmentForm .eitemgroup .cblabel:before, #EnrollmentForm .eitemgroup .cblabel:after, #EnrollmentForm .eitemgroup .rlabel:before, #EnrollmentForm .eitemgroup .rlabel:after {
+        content: '';
+        position: absolute; }
+      #EnrollmentForm .eitemgroup .cblabel:before, #EnrollmentForm .eitemgroup .rlabel:before {
+        width: 2.8rem;
+        height: 2.8rem;
+        background-color: #fff;
+        border: 2px solid #ede0be;
+        border-radius: 50em;
+        top: 0;
+        left: 0; }
+      #EnrollmentForm .eitemgroup .cblabel:after, #EnrollmentForm .eitemgroup .rlabel:after {
+        height: 2rem;
+        width: 1rem;
+        border-bottom: 4px solid #116d9c;
+        border-right: 4px solid #116d9c;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 0.5em;
+        top: 0.1em;
+        opacity: 0; }
+    #EnrollmentForm .eitemgroup .cblabel:before {
+      border-radius: 5px; }
+    #EnrollmentForm .eitemgroup input[type=radio]:checked + .cblabel:after {
+      opacity: 1; }
+    #EnrollmentForm .eitemgroup input[type=radio] {
+      display: none; }
+    #EnrollmentForm .eitemgroup input[type=checkbox]:checked + .cblabel:after {
+      opacity: 1; }
+    #EnrollmentForm .eitemgroup input[type=checkbox] {
+      display: none; }
+  #EnrollmentForm:after {
+    content: '成功提交報名表格！';
+    display: inline-block;
+    padding: 1.3em 0;
+    color: #9A9134;
+    opacity: 0; }
+  #EnrollmentForm.enrol_success:after {
+    opacity: 1; }
+  #EnrollmentForm.enrolling {
+    opacity: 0.5;
+    pointer-events: none; }
+  #EnrollmentForm #EnrollmentSubmit {
+    border: none;
+    color: #fff;
+    padding: 1em 1.6em;
+    letter-spacing: 0.3em;
+    background: #D14817;
+    border-radius: 50em;
+    margin-top: 1em; }
+    #EnrollmentForm #EnrollmentSubmit:focus {
+      outline: none; }
+    #EnrollmentForm #EnrollmentSubmit:disabled {
+      opacity: 0.2; }
+  #EnrollmentForm #enrol-agreeterms input[type=checkbox] {
+    margin-right: 1em;
+    transform: scale(1.5); }
+  #EnrollmentForm #enrol-agreeterms label {
+    display: inline;
+    font-size: 0.95em; }
+  #EnrollmentForm #enrol-agreeterms #enrol-termsbtn {
+    text-decoration: underline;
+    font-weight: 400;
+    color: lightblue;
+    cursor: pointer; }
+
+#enrol-terms {
+  font-size: 0.8em;
+  letter-spacing: 0.01em;
+  color: black;
+  background: white;
+  border-radius: 1em 1em 0 0;
+  padding: 2em 1em;
+  position: fixed;
+  bottom: calc(0px - 100%);
+  opacity: 0;
+  width: 100%;
+  left: 0;
+  max-height: 80vh;
+  text-align: left;
+  z-index: 9999;
+  transition: bottom 0.5s, opacity 0.3s;
+  pointer-events: none; }
+  #enrol-terms .h4 {
+    padding-left: 2rem;
+    padding-right: 2rem; }
+  #enrol-terms .terms {
+    overflow: auto;
+    height: 55vh;
+    margin-top: 2em;
+    padding: 0 2rem; }
+
+#enrol-termsbgcover {
+  content: '';
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none; }
+
+#enrol-termsclosebtn {
+  position: absolute;
+  bottom: 82vh;
+  right: 1em;
+  cursor: pointer;
+  width: 2em;
+  height: 2em; }
+  #enrol-termsclosebtn:before, #enrol-termsclosebtn:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 1em;
+    left: 0;
+    width: 2em;
+    height: 2px;
+    background: white;
+    transform: rotate(45deg); }
+  #enrol-termsclosebtn:after {
+    transform: rotate(-45deg); }
+
+body.popterms {
+  overflow: hidden; }
+  body.popterms #enrol-terms {
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto; }
+  body.popterms #enrol-termsbgcover {
+    opacity: 1;
+    pointer-events: auto; }
+
+@media (max-width: 1045px) {
+  #TopNav .nav > li > a, #TopNav .navbar-brand, .container-fluid {
+    padding-left: 1em;
+    padding-right: 1em; }
+
+  h1 {
+    font-size: 0.95em; }
+
+  .bannerH .bannerimg {
+    padding-top: 68%; }
+
+  .bannerTitle1 {
+    background-size: 50%; }
+
+  .bannerTitle2 {
+    background-size: 44%; } }
+@media (max-width: 910px) {
+  #TopNav .nav > li > a {
+    font-size: 0.81em;
+    padding-left: 0.9em;
+    padding-right: 0.9em; }
+
+  .dropdown-menu > li > a {
+    font-size: 0.81em; }
+
+  h1 {
+    margin-top: -0.8em; } }
+@media (max-width: 767px) {
+  .txtright {
+    text-align: left; }
+
+  h2 {
+    font-size: 2em;
+    margin-bottom: 1em; }
+
+  p {
+    font-size: 0.9em; }
+
+  section {
+    padding-left: 1em;
+    padding-right: 1em; }
+
+  section:first-of-type {
+    margin-top: 3.5em; }
+
+  .navbar-default .navbar-toggle {
+    padding: 1em;
+    border: none; }
+    .navbar-default .navbar-toggle:focus {
+      background: #fff; }
+    .navbar-default .navbar-toggle:hover {
+      background: #efefef; }
+
+  #TopNav .navbar-nav > li > .dropdown-menu {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none; }
+  #TopNav .dropdown-menu {
+    position: relative;
+    opacity: 1;
+    margin-bottom: 1em;
+    background: #efefef; }
+    #TopNav .dropdown-menu li {
+      height: auto; }
+    #TopNav .dropdown-menu a, #TopNav .dropdown-menu a:hover {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      padding-left: 2.5em; }
+  #TopNav .nav > li > a {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em; }
+  #TopNav #enrol-btn a, #TopNav #enrol-btn ahover {
+    color: #111111;
+    background: transparent;
+    margin-bottom: 0;
+    padding-bottom: 0.8em; }
+
+  #EnrollmentForm .eitemgroup {
+    width: 100%; }
+
+  .navbar-fixed-top .navbar-collapse {
+    max-height: 430px; }
+
+  .fwrap {
+    flex-wrap: wrap; }
+
+  .fbox {
+    width: calc(50% - 15px); } }
+.timesup:after {
+  content: '已截止報名';
+  display: inline-block;
+  position: absolute;
+  /*background: rgba(252,239,205,0.8);*/
+  bottom: 0;
+  top: 3.5em;
+  left: 0;
+  right: 0;
+  font-size: 1.5em;
+  color: #ffecbd;
+  font-weight: 500; }
+.timesup #EnrollmentForm {
+  opacity: 0.3; }

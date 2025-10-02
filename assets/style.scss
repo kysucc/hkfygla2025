@@ -1,0 +1,813 @@
+$color-theme-red:#f4aa85;
+$color-theme-red_dark:#D14817;
+$color-theme-red_hover:#E67F63;
+$color-theme-lightbrown:#9A9134;
+$color-theme-brown:#a8d8eb;
+$color-theme-darkbrown:#8a6437;
+$color-theme-pale:#f0efef;
+$color-theme-green:#5673a7;
+$color-theme-green2:#107a56;
+$color-theme-darkgreen:#116d9c;
+$color-theme-darkgreen2:#1b4236;
+$color-theme-lightgreen:#d4ec93;
+$color-theme-wheat:#F5DEB3;
+$color-theme-dark:#111111;
+$color-theme-yellow:#ffecbd;
+$color-theme-purple:#7c33d0;
+
+
+
+$color-lightest:#fff;
+$color-mid:#efefef; /*#deefe5*/
+$color-darkest:$color-theme-dark;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;200;300;400;500;600;900&display=swap');
+
+%texture{
+	content:'';
+	display: block;
+	width:100%;
+	position: absolute;
+	bottom:0;
+	top:0;
+	left:0;
+	background:url(noisepattern.png);
+	/*background-blend-mode: multiply;*/
+	opacity: 0.44;
+	z-index: 1;
+	pointer-events: none;
+}
+%texturebg-basic{
+	position:relative;
+	.container{z-index: 10; position: relative;}
+}
+%texturebg-TB{
+	@extend %texturebg-basic;
+	&:before,&:after{@extend %texture;}
+	&:after{transform: scale(-1);}
+}
+%texturebg-T{
+	@extend %texturebg-basic;
+	&:before{@extend %texture;}
+}
+%texturebg-B{
+	@extend %texturebg-basic;
+	&:after{@extend %texture;}
+	&:after{transform: scale(-1);}
+}
+/*
+*{transition: all 0.3s;}
+.preload * {
+ -webkit-transition: none !important;
+ -moz-transition: none !important;
+ -ms-transition: none !important;
+ -o-transition: none !important;
+}*/
+
+body{
+	font-family: 'Noto Sans TC','Microsoft JhengHei', sans-serif;
+	font-size: 18px;
+	letter-spacing: 0.1em;
+	color: $color-darkest;
+	background:$color-theme-brown;
+	font-weight: 400;
+}
+h1{
+	font-size: 1.1em;
+	margin: 0;
+	margin-top: -0.6em;
+    letter-spacing: 0.2em;
+    padding: 0 2em 0 0 ;
+    border-right: 1px solid rgba(0,0,0,0.3);
+    color:$color-theme-dark;
+    span{
+    	&#title-year{
+	    	display: flex;
+		    margin-top: 0.2em;
+		    text-align: left;
+		    justify-content: space-between;
+		    width: 100%;
+		    align-items: center;
+		    opacity: 0.7;
+    	}
+    	&.title-year{
+    		display: inline-block;
+    		font-size: 0.7em;
+	    	letter-spacing: 0.2em;
+    		color:$color-theme-dark;
+    		font-weight: 600;
+    	}
+    	&.title-line{
+    		display: inline-block;
+    		width:45%;
+    		height:1px;
+    		background:$color-theme-dark;
+    	}
+    }
+}
+h2{
+	text-align: center;
+	font-size: 2em;
+    letter-spacing: 0.2em;
+    margin: 0.5em 0 1.5em 0;
+    span{
+        display: block;
+	    font-size: 0.4em;
+	    letter-spacing: 0.5em;
+	    font-weight: normal;
+	    margin-top: 0.8em;
+	}
+}
+h3{
+	margin: 0 0 1em 0;
+	font-size: 1em;
+}
+h4{
+	margin-bottom: 1.5em;
+	font-weight: 600;
+}
+span{
+	font-weight: bold;
+}
+p{
+	margin-bottom:2em;
+	line-height: 1.6em;
+    /*letter-spacing: 0.05em;*/
+}
+label{font-weight: 500;}
+.mt{
+	&-1{margin-top:1em;}
+	&-2{margin-top:2em;}
+}
+.mb{
+	&-2{margin-bottom:2em;}
+	&-4{margin-bottom:4em;}
+	&-8{margin-bottom:8em;}
+}
+.pt{
+	&-02{padding-top:0.2em;}
+}
+.fs{
+	&-80{font-size: 0.8em;}
+}
+
+section{
+	padding: 4em 0;
+
+	&:first-of-type{margin-top:3.5em;}
+	&:last-of-type{padding-bottom:4em;}
+
+	&#top{padding:0;background:$color-theme-green;}
+	&#intro{
+		background:url(banner2.jpg) no-repeat top center/cover;
+		color:$color-theme-dark;
+		padding-top:7em;
+		.intro-img{
+			width: 80%;
+    		margin-top: -2em;
+    		max-width: 30em;
+		}
+	}
+	&#information{
+		background: $color-theme-yellow;
+		color:$color-theme-dark;
+		h2{color:$color-theme-dark;}
+		/*@extend %texturebg-TB;*/
+		h3{ 
+			display: inline-block;
+			color:$color-theme-darkgreen;
+			border:1px solid $color-theme-darkgreen;
+			border-radius: 50em;
+			text-align: center;
+			padding:0.5em 0.6em;
+			width:100%;
+		}
+		.new{
+			display: inline-block;
+		    background: $color-theme-darkbrown;
+		    color: $color-lightest;
+		    padding: 0.2em 0.5em;
+		    border-radius: 3px;
+		    transform: rotate(0deg) scale(0.7) translate(0em,-0.3em);
+		}
+	}
+	&#highlights{
+		background:$color-theme-pale;
+		h2{color:$color-theme-red_dark;margin-bottom: 1em;}
+		.video{
+			width:100%;padding-top: 56%; margin-bottom: 1em;
+			position:relative;
+			iframe{
+				position: absolute;
+				top:0;bottom:0;left:0;right:0;
+				width:100%;height:100%;
+			}
+		}
+		.winnertxt,.winnerschool,.winnername{font-weight: normal;font-size: 0.85em;display: block;}
+		.winnertxt{margin-bottom: 1em;}
+		.wintitle{font-weight: normal; margin: 0.5em 0; display: inline-block;}
+	}
+	&#awards{
+		h2{color:$color-theme-lightbrown;}
+	}
+	&#schedule{
+		background:$color-theme-green;
+		color:$color-lightest;
+		@extend %texturebg-T;
+
+		span.moreinfo{
+			font-weight: 400;
+		    font-size: 0.8em;
+		    margin-bottom: 0.8em;
+		    display: inline-block;
+		    color: $color-theme-lightgreen;
+		}
+		table{
+			border:0;
+			tr{
+				&:nth-of-type(odd){background: rgba(0,0,0,0.2);}
+				&:nth-of-type(even){background: rgba(0,0,0,0.1);}
+				&:first-of-type{
+					/*border-radius:2em 2em 0 0;*/
+					td{
+						&:first-of-type{border-radius: 2em 0 0 0;}
+						&:last-of-type{border-radius: 0 2em 0 0;}
+					}
+				}
+				&:last-of-type{
+					/*border-radius:0 0 2em 2em;*/
+					td{
+						&:first-of-type{border-radius: 0 0 0 2em;}
+						&:last-of-type{border-radius: 0 0 2em 0;}
+					}
+				}
+
+				td{
+					border:0;padding-left:2em;padding-right:2em;
+					&:first-of-type{font-size: 1.1em;text-align: right;font-weight: 500;}
+					&:last-of-type{vertical-align: middle;text-align: left;font-weight: 300;}
+				}
+			}
+		}
+	}
+	&#prevbooks{font-size: 0.9em;background:$color-theme-pale;
+		h2{color:$color-theme-darkbrown;}
+	}
+	&#enrol{
+		background:$color-theme-green;
+		color:$color-lightest;
+		@extend %texturebg-T;
+		h2{margin-bottom: 1em;}
+	}
+	&#enquiry{
+		background:$color-theme-yellow;
+		padding-bottom: 5em;
+		h2{color:$color-theme-darkgreen;}
+	}
+	&#sponsor{
+		background:$color-theme-pale;
+		.subtitle{font-size: 0.8em;margin-bottom: 2em;}
+		.sponsorlogo{
+			display: inline-block;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			position: relative;
+			width:25%;padding-top: 20%;
+			&.slogo1{background-image:url(ele_hkfyglogo.png);width:100%;padding-top: 32%;}
+			&.slogo2{background-image:url(ele_scolarlogo.png);}
+			&.slogo3{background-image:url(ele_langfundlogo.png);}
+			&.slogo4{background-image:url(ele_govfplogo.png); width:40%;float:right;}
+		}
+	}
+}
+div.photo{
+	background-color:$color-theme-red;
+	background-size:cover;
+	background-position:center;
+	width:100%; padding-top:66%;
+	&.bookcover{background-image: url('bookcover.jpg');}
+	&.p3800{background-image: url('p3800.jpg');}
+	&.p3806{background-image: url('p3806.jpg');}
+	&.p3812{background-image: url('p3812.jpg');}
+	&.p3818{background-image: url('p3818.jpg');}
+	&.p3926{background-image: url('p3926.jpg');}
+	&.p3929{background-image: url('p3929.jpg');}
+	&.p3933{background-image: url('p3933.jpg');}
+	&.p0000{background-image: url('p0000.jpg');}
+}
+.fwrap{display: flex;align-items: stretch; justify-content: space-between;}
+.fbox{width: calc(20% - 25px);}
+.container-fluid{
+	padding-left:2em;
+	padding-right:2em;}
+
+.enrollbtnfloat,.enrollbtnfloat:hover,.enrollbtnfloat:visited{
+	border:none;
+	color:$color-lightest;
+	letter-spacing: 0.3em;
+	background:$color-theme-red_dark;
+    padding: 0.5em 1.6em;
+    position: fixed;
+    right: -3.2em;
+    bottom: -500%;
+    z-index: 999;
+    transform: rotate(-90deg);
+    font-size: 0.8em;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    text-decoration: none;
+    border-radius: 2em 2em 0 0;
+	&:focus{outline: none;text-decoration: none;}
+	&:hover{background: $color-theme-red_hover;}
+}
+#TopNav{
+	background:$color-lightest;
+    border: none;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+
+    .caret{margin-left: 0.5em;}
+	.nav>li>a,.navbar-brand{
+		padding:1.5em 1.3em;
+		color:$color-theme-dark;;
+		font-size: 1em;
+		letter-spacing: 0.2em;
+		cursor:pointer;
+		&.dropdown-toggle{color:$color-lightest;}
+	}
+	.nav>li{
+		&>a{border-right: 0;}
+		&:last-of-type>a{border-right: 0;} 
+		&:hover>a{background:$color-theme-darkgreen;color:$color-lightest;}
+	}
+	li.active a{background: $color-theme-darkgreen2;color:$color-lightest;}
+	#enrol-btn a{
+		transition: all 0.3s;
+		color:$color-lightest;
+		background:$color-theme-red_dark;
+		border-radius: 0 0 1em 1em;
+	    padding-bottom: 2em;
+	    margin-bottom: -2em;
+	    border-right:0;
+	    &:hover{background: $color-theme-red_hover;padding-top: 2em;}
+	}
+
+	.navbar-nav>li>.dropdown-menu{
+		padding:0;
+		font-size: inherit;
+		border:none;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
+    	-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.3);
+    	box-shadow: 0px 3x 5px 0px rgba(0,0,0,0.3);
+
+	}
+	.dropdown{
+		&-toggle{
+			z-index: 100;
+			background:$color-theme-darkgreen;
+			color:$color-lightest;
+		}
+		cursor: pointer;
+		&-menu{
+			width:100%;
+			display: block;
+			opacity: 0;
+			z-index: 99;
+			li{
+				height: 0;
+			}
+			a{
+				padding-top: 0;
+			    padding-bottom: 0;
+			}
+		}
+		&:hover{
+			.dropdown-menu{
+				opacity: 1;
+				li{
+					height:auto;
+				}
+				a{
+					padding-top: 1em;
+				    padding-bottom: 1em;
+				}
+			}
+		}
+	}
+}
+
+
+td{width:50%;}
+.txtcenter{text-align: center;}
+.txtleft{text-align: left;}
+.txtright{text-align: right;}
+.inlineblock{display: inline-block;}
+.txtn{font-weight: normal;}
+.contacts_{
+	&rowwrap{display: inline-block;margin:0 auto;}
+	&row{display: flex;}
+	&title{ font-weight: bold;min-width: 4em; }
+	&content{}
+}
+.banner{
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center top;
+	width:100%; height:auto;
+	min-height:calc(100vh - 3.5em);
+	position: relative;
+	&H{
+		.bannerimg{padding-top:50%;background-image: url(banner.jpg);margin: 0 0 0 0;}
+		.bannerbg{
+			&:before{
+				content:'';
+				display: block;
+				position:absolute;
+				left:0;right:0;top:0;bottom:0;
+				background: url(noisepattern.png) repeat;
+				opacity: 0.44;
+			}
+		}
+	}
+	&Title{
+		content:'';
+		display: block;
+		position:absolute;
+		left:0;right:0;top:0;bottom:0;
+		background-repeat: no-repeat;;
+		background-position-x:46%;
+		&1{background-image:url(title1.png);background-position-y:28%;background-size:38%;}
+		&2{background-image:url(title2.png);background-position-y:37%;background-size:33%;}
+	}
+}
+.plane{
+	content: '';
+    display: inline-block;
+    width: 80%;
+    padding-top: 18%;
+    background: url(img2.png) no-repeat center center/contain;
+    position: absolute;
+    top: 0em;
+    left: 10%;
+    z-index: 1;
+    transform: rotate(-4deg);
+}
+.book{
+	&img{
+		display: inline-block;
+		width:100%;padding-top: 150%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.1);
+		position: relative;
+		margin-top: -2em;
+		&1{background-image: url(book1.jpg);}
+		&2{background-image: url(book2.jpg);padding-top: 142%;}
+		&3{background-image: url(book3.jpg);}
+		&4{background-image: url(book4.jpg);}
+		&5{background-image: url(book5.jpg);}
+		&6{background-image: url(book6.jpg);}
+		&7{background-image: url(book7.jpg);}
+		&8{background-image: url(book8.jpg);}
+	}
+	&category{
+		padding:0.1em 1em 0.2em 1em;
+		border:1px solid $color-theme-lightbrown;
+		font-weight: 400;
+		color:$color-theme-lightbrown;
+		margin-right: 0.8em;
+		border-radius: 50em;
+		font-size: 0.8em;
+		margin-bottom: 0.8em;
+    	display: inline-block;
+	}
+	&link{
+		&,&:hover,&:focus,&:visited{
+			padding:0.5em 1.5em;
+			color:$color-lightest;
+			background:$color-theme-red_dark;
+			border-radius:50em;
+			text-decoration: none;
+		}
+		&:hover{
+			background:$color-theme-red_hover;
+		}
+	}
+}
+.line{
+	width: 8%;
+	height: 1px;
+	background: $color-theme-brown;
+	margin:0 auto;
+	position: relative;
+	top: -4em;
+	&L{transform: rotate(-30deg);}
+	&R{transform: rotate(30deg);}
+}
+#EnrollNotes{
+	font-size: 0.8em;
+    font-weight: 400;
+    color: $color-darkest;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2em;
+    padding: 1rem 3rem;
+    margin-bottom: 3rem;
+    .h4{color: $color-theme-darkgreen;}
+}
+#EnrollmentForm{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	opacity: 1;
+	transition: opacity 0.5s;
+	.break {
+	  flex-basis: 100%;
+	  height: 0;
+	}
+	.eitemgroup{
+		width:46%;
+		display: table;
+		margin-bottom: 0.7em;
+		position:relative;
+		&.full{width:100%;}
+		&.fw{
+			width:100%;
+			display: block;
+			label:not(.cblabel)/*,input:not([type=checkbox])*/{display: block;}
+			label:not(.cblabel){width:100%;font-weight: 400;color:$color-theme-yellow;}
+			.cblabel/*, input[type=checkbox]*/{display: inline-block;}
+		}
+		label:not(.cblabel):not(.optionallabel){
+			padding-right: 1em;text-align: left;width:10em;
+			font-weight: 400;color:$color-theme-yellow;
+			&:after{
+				content:'*';
+				display: inline;
+				color: $color-theme-red_dark;
+			}
+
+		}
+		.cblabel{padding-left: 2em;padding-right: 1em;}
+		.form-control{padding-left:1.5em; padding-right: 1.5em;}
+		input,textarea{
+			border:1px solid #f5e8c6;
+			&::placeholder{color:$color-theme-brown;opacity: 0.6;}
+		}
+		label,input,textarea,select{
+			display: table-cell; 
+			letter-spacing: 0.1em;
+			opacity: 1;
+			border-radius: 1em;
+		}
+		textarea.form-control{resize: none;border-radius: 1em;padding:1em 1.5em;}
+		label[for=email]{padding-right: calc(2.2em + 1em);}
+		&.warn{
+			input,textarea{border-color: $color-theme-red_dark;}
+			&:before{
+				display: inline-block;
+				font-size: 0.6em;
+				color: $color-lightest;
+				position:absolute;
+				right:0; top:0;
+				padding:0.3em 0.5em;
+    			border-top-right-radius: 4px;
+    			background:$color-theme-red_dark;
+    			z-index: 888;
+			}
+			&.format:before{content:'格式錯誤';}
+			&.empty:before{content:'請輸入';}
+		}
+		&.fw.warn:before{top:2.8em;}
+		.wordnum{
+			font-size: 0.8em;
+		    float: right;
+		    opacity: 1;
+		    font-weight: normal;
+		    /*&:after{content:'字';display: inline;}*/
+		}
+		&#enrol-des{margin-top: 1em;}
+		/*#groupjoinothers{opacity: 0;}*/
+	
+		.cblabel,.rlabel { 
+		    position: relative;
+		    display: inline-block;
+		    cursor: pointer;
+		    &:before,&:after{
+		    	content:'';
+		    	position:absolute;
+		    }
+		    &:before{
+		    	width:2.8rem;height:2.8rem;
+		    	background-color:$color-lightest;
+		    	border:2px solid #ede0be;
+		    	border-radius: 50em;
+		    	top:0;left:0;
+		    }
+		    &:after{
+		    	height: 2rem; 
+	            width: 1rem; 
+	            border-bottom: 4px solid $color-theme-darkgreen; 
+	            border-right: 4px solid $color-theme-darkgreen; 
+	            transform: rotate(45deg); 
+		    	position: absolute;
+   				left: 0.5em;
+    			top: 0.1em;
+    			opacity: 0;
+		    }
+		}
+		.cblabel{
+			&:before{border-radius: 5px;}
+		}
+
+		input[type=radio]:checked + .cblabel:after { 
+		    opacity: 1;
+		}
+
+		input[type=radio]{
+		    display: none;
+		}
+		input[type=checkbox]:checked + .cblabel:after { 
+		    opacity: 1;
+		}
+
+		input[type=checkbox]{
+		    display: none;
+		}
+	}
+	&:after{
+		content: '成功提交報名表格！';
+	    display: inline-block;
+	    padding: 1.3em 0;
+	    color: $color-theme-lightbrown;
+	    opacity: 0;
+	}
+	&.enrol_success:after{opacity: 1;}
+	&.enrolling{
+		opacity: 0.5;
+		pointer-events:none;
+	}
+
+	#EnrollmentSubmit{
+		border:none;
+		color:$color-lightest;
+		padding:1em 1.6em;
+		letter-spacing: 0.3em;
+		background:$color-theme-red_dark;
+		border-radius: 50em;
+		margin-top: 1em;
+		&:focus{outline: none;}
+		&:disabled{opacity: 0.2;}
+	}
+	#enrol-agreeterms{
+		input[type=checkbox]{margin-right:1em;transform: scale(1.5);}
+		label{display: inline;font-size:0.95em;}
+		#enrol-termsbtn{text-decoration: underline;font-weight: 400;color:lightblue;cursor: pointer;}
+	}
+}
+#enrol-terms{
+	font-size: 0.8em;
+    letter-spacing: 0.01em;
+    color: black;
+    background: white;
+    border-radius: 1em 1em 0 0;
+    padding: 2em 1em;
+    position: fixed;
+    bottom: calc(0px - 100%);
+    opacity: 0;
+    width: 100%;
+    left: 0;
+    max-height: 80vh;
+    text-align: left;
+    z-index: 9999;
+    transition: bottom 0.5s, opacity 0.3s;
+    pointer-events: none;
+    .h4{
+    	padding-left: 2rem;
+    	padding-right: 2rem;
+    }
+    .terms{
+    	overflow: auto;
+    	height: 55vh;
+    	margin-top: 2em;
+    	padding: 0 2rem;
+    }
+}
+#enrol-termsbgcover{
+    	content:'';
+    	width:100%;
+    	height:100vh;
+    	left:0;right:0;top:0;bottom:0;
+    	position:fixed;
+    	background:rgba(0,0,0,0.7);
+    	z-index: 9998;
+		opacity: 0;
+		transition:opacity 0.3s;
+    pointer-events: none;
+    }
+    #enrol-termsclosebtn{
+    	    position: absolute;
+		    bottom: 82vh;
+		    right: 1em;
+		    cursor: pointer;
+		    width: 2em;
+		    height: 2em;
+    	&:before,&:after{
+    		content:'';
+    		display: inline-block;
+    		position: absolute;
+    		top: 1em;
+		    left: 0;
+		    width: 2em;
+		    height: 2px;
+    		background:white;
+    		transform:rotate(45deg);
+    	}
+    	&:after{transform:rotate(-45deg);}
+    }
+body.popterms{
+	overflow: hidden;
+	#enrol-terms{bottom:0;opacity: 1;pointer-events:auto;}
+	#enrol-termsbgcover{opacity:1;pointer-events:auto;}
+}
+@media (max-width: 1045px){
+	#TopNav .nav>li>a,#TopNav .navbar-brand,.container-fluid{
+		padding-left:1em;
+		padding-right:1em;
+	}
+	h1{font-size: 0.95em;}
+	.bannerH .bannerimg{padding-top:68%;}
+	.bannerTitle1{background-size: 50%;}
+	.bannerTitle2{background-size: 44%;}
+}
+@media(max-width:910px){
+	#TopNav .nav > li > a{
+		font-size: 0.81em;
+		padding-left: 0.9em;
+    	padding-right: 0.9em;
+	}
+	.dropdown-menu>li>a{font-size: 0.81em;}
+	h1{
+		margin-top:-0.8em;
+	}
+}
+@media (max-width:767px){
+	.txtright{text-align: left;}
+	h2{font-size: 2em; margin-bottom: 1em;}
+	p{font-size: 0.9em;}
+	section{padding-left:1em;padding-right:1em;}
+	section:first-of-type { margin-top: 3.5em; }
+	.navbar-default .navbar-toggle{
+		&:focus{background: $color-lightest;}
+		&:hover{background: $color-mid;}
+		padding:1em;border:none;
+	}
+	#TopNav{
+		.navbar-nav>li>.dropdown-menu{
+			box-shadow:none;
+			-moz-box-shadow:none;
+			-webkit-box-shadow:none;
+		}
+		.dropdown-menu{
+			position:relative;
+			opacity: 1;
+			margin-bottom:1em;
+			background:$color-mid;
+			li{height:auto;}
+			a,a:hover{padding-top:0.5em;padding-bottom: 0.5em;padding-left: 2.5em;}
+		}
+		.nav>li>a{padding-top: 0.8em;padding-bottom:0.8em;}
+		#enrol-btn a{
+			&,&hover{
+				color:$color-theme-dark;
+				background:transparent;
+				margin-bottom: 0;
+	    		padding-bottom: 0.8em;
+	    	}
+		}
+	}
+	#EnrollmentForm .eitemgroup{width: 100%;}
+	.navbar-fixed-top .navbar-collapse{max-height: 430px;}
+	.fwrap{flex-wrap: wrap;}
+	.fbox{width: calc(50% - 15px);}
+}
+.timesup{
+	&:after {
+	    content: '已截止報名';
+	    display: inline-block;
+	    position: absolute;
+	    /*background: rgba(252,239,205,0.8);*/
+	    bottom: 0;
+	    top: 3.5em;
+	    left: 0;
+	    right: 0;
+	    font-size: 1.5em;
+	    color: $color-theme-yellow;
+	    font-weight: 500;
+	}
+    #EnrollmentForm{opacity: 0.3;}
+}
