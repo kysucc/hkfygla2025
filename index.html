@@ -10,7 +10,7 @@
   	<meta property="og:url" content="">
   	<meta property="og:description" content="香港青年協會一向致力推廣青年閱讀及創作，多年來出版多元系列的專業叢書。為了鼓勵青年發揮寫作才能，透過文字表達自己，本會自2016年開始推出廣受歡迎的「青年作家大招募計劃」，為青年帶來出版平台，實現出書夢。">
 
-  	<title>校園作家大招募計劃 2025-2026</title>
+  	<title>校園作家大招募計劃 2025-2026 0232</title>
   	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>   
@@ -536,7 +536,9 @@
             $('input:radio[name=joingroup]').click(function(e){
                 $('#groupjoin').val($('input:radio[name=joingroup]:checked').val());
             });*/
-             $('#EnrollmentSubmit').click(function(e){
+             //$('#EnrollmentSubmit').click(function(e){
+            $('#EnrollmentForm').on('submit', function(e) {
+  e.preventDefault(); // prevent default form submission
 
                 var status = true;
                 var recaptchaResponse = grecaptcha.getResponse();
